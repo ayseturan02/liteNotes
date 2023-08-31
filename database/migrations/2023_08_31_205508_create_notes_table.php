@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign("user_id")->on("users")->references("id");
+
         });
     }
 

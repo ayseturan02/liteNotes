@@ -26,3 +26,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get("/masterTest",function (){
+   return view("front.layouts.master");
+});
