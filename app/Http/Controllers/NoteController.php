@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
+
     public function index(){
         return view("front.notes.index");
     }
