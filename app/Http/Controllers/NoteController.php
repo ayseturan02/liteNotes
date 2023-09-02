@@ -26,6 +26,25 @@ class NoteController extends Controller
         // dd($request->not_baslık);
         //Auth::user();
         //dd(Auth::user()->id);
+        //validation doğrulama kuralkoyma
+
+        $request->validate(
+            [
+                //"doğrulamakistediğimizkey"="Kuralkoyma"
+                //"title"=>"zorunlu"
+                "title" => "required | min:3 | max:30",
+                "content"=>"required",
+            ],[
+                //custom message
+                //keyAdı.kuralAdı=>"mesaj",
+                "title.required"=>"başlık yazmayı unutma",
+                "title.min"=>"lütfen daha uzun yaz",
+            ]
+        );
+
+        //laravel otomotik olarak errors gönderir
+        //eğer validate kısmında hata varsa
+        //        return redirect()->back()->with("errors,"message ");
 
 
         $note= new Note();
@@ -33,5 +52,8 @@ class NoteController extends Controller
         $note->title = $request->title;
         $note->content =$request->content;
         $note->save();
+      //  return redirect()->back();
+
+        return redirect()->route("notes_index")->with("success","Başarı ile kaydedildi");
     }
 }
