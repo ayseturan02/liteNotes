@@ -1,7 +1,8 @@
 @extends("front.layouts.master")
 @section("content")
 
-    <button class="btn btn-success" href="{{route("notes_createPage")}}">Not oluştur </button>
+    <a
+        class="btn btn-success" href="{{route("notes_createPage")}}">Not oluştur </a>
 <br><br>
 
         @if(session("success"))
