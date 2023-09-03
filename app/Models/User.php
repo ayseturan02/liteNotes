@@ -58,4 +58,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getNotes(){
+        //geriye notları döndürsün  thıs:bu user
+        return $this->hasMany(Note::class,"user_id","id");
+    }
 }
+
+
+//bir kulllanıcının bir çok not olabilir.

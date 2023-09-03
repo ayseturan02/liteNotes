@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
@@ -11,13 +12,16 @@ class NoteController extends Controller
 {
 
     public function index(){
-       // $var = Note::get();
-       // $var = Note::where("vertabanındakiSütun (haystack)","aramakİstediğimDeğer(needle)"); hepsini getirir
-       // $var=Note::where("title","a")->get();
-       // $var=Note::where("id","<","5)->get();
+        // $var = Note::get();
+        // $var = Note::where("vertabanındakiSütun (haystack)","aramakİstediğimDeğer(needle)"); hepsini getirir
+        // $var=Note::where("title","a")->get();
+        // $var=Note::where("id","<","5)->get();
         // dd($var);
 
-        $notlar=Note::where("user_id",Auth::user()->id)->get;
+        //   $user=User::where("id",2)->first();
+        //  $not=Note::where("title","ABCDE")->first();
+        $notlar=Auth::user()->getNotes;
+        // $notlar=Note::where("user_id",Auth::user()->id)->get;
         return view("front.notes.index",compact("notlar"));
     }
 
