@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class NoteController extends Controller
 {
@@ -20,9 +21,13 @@ class NoteController extends Controller
 
         //   $user=User::where("id",2)->first();
         //  $not=Note::where("title","ABCDE")->first();
-        $notlar=Auth::user()->getNotes;
-        // $notlar=Note::where("user_id",Auth::user()->id)->get;
-        return view("front.notes.index",compact("notlar"));
+        //  $notlar=Auth::user()->getNotes;
+
+         // $notlar=Note::where("user_id",Auth::user()->id)->latest("updated_at")->get();
+
+         $notlar=Note::where("user_id",Auth::user()->id)->latest("updated_at")->paginate(2);
+
+         return view("front.notes.index",compact("notlar"));
     }
 
     public function createPage(){

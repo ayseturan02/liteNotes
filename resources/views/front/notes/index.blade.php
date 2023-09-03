@@ -10,18 +10,20 @@
             </div>
         @endif
 
+    <h1>NOTLAR</h1>
+    <br><br><br>
+
 @if($notlar->count() > 0)
 @foreach($notlar as $not)
-    <div class="card mt-3">
-        <div class="card-header">
-            {{$not->title}}
-        </div>
-        <div class="card-body">
-            {{$not->content}}
-        </div>
-    </div>
-@endforeach
+    <div class="border-bottom  shadow-sm p-3 mb-5 bg-body rounded-3 mb-3  p-3">
+         <h2 class="fs-2 fw-bold"> {{$not->title}}</h2>
+         <p class="mt-3"> {{Str::limit($not->content,100)}}</p>
+        <span class="block fs-6 text -muted opacity-50">{{$not->updated_at->diffForHumans()}}</span>
 
+    </div>
+    <br>
+@endforeach
+    {{$notlar->links()}}
 @else
     Henüz bir not kaydetmediniz !.
 @endif

@@ -9,7 +9,7 @@
 
     <title>LiteNotes</title>
 </head>
-<body>
+<body style="background-color:#e2e2e2">
 
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary px-5"  data-bs-theme="dark">
     <div class="container-fluid">
