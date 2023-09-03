@@ -11,5 +11,14 @@
         @endif
 
 
-    bu sayfada notlar listelenecek
+@foreach($notlar as $not)
+    <div class="card mt-3">
+        <div class="card-header">
+            {{$not->title}}
+        </div>
+        <div class="card-body">
+            {{$not->content}}
+        </div>
+    </div>
+@endforeach
 @endsection

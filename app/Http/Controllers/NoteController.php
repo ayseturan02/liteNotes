@@ -11,7 +11,14 @@ class NoteController extends Controller
 {
 
     public function index(){
-        return view("front.notes.index");
+       // $var = Note::get();
+       // $var = Note::where("vertabanındakiSütun (haystack)","aramakİstediğimDeğer(needle)"); hepsini getirir
+       // $var=Note::where("title","a")->get();
+       // $var=Note::where("id","<","5)->get();
+        // dd($var);
+
+        $notlar=Note::get();
+        return view("front.notes.index",compact("notlar"));
     }
 
     public function createPage(){
