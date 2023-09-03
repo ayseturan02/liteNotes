@@ -10,7 +10,7 @@
             </div>
         @endif
 
-
+@if($notlar->count() > 0)
 @foreach($notlar as $not)
     <div class="card mt-3">
         <div class="card-header">
@@ -21,4 +21,9 @@
         </div>
     </div>
 @endforeach
+
+@else
+    Henüz bir not kaydetmediniz !.
+@endif
+
 @endsection

@@ -17,7 +17,7 @@ class NoteController extends Controller
        // $var=Note::where("id","<","5)->get();
         // dd($var);
 
-        $notlar=Note::get();
+        $notlar=Note::where("user_id",Auth::user()->id)->get;
         return view("front.notes.index",compact("notlar"));
     }
 
