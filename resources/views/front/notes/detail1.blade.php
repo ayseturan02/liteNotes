@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between">
 
         <h1>burası detay bir sayfası</h1>
-        <button class="btn btn-danger ">Güncelle</button>
+        <button class="btn btn-danger ">"&nbsp;Güncelle"&nbsp;</button>
 
     </div>
     <br><br>
