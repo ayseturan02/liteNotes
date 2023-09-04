@@ -4,7 +4,7 @@
     <div class="d-flex justify-content-between">
 
         <h1>burası detay bir sayfası</h1>
-        <button class="btn btn-danger ">"&nbsp;Güncelle"&nbsp;</button>
+        <a href="{{route("notes_update",$not->id)}}" class="btn btn-danger">&nbsp;Güncelle&nbsp;</a>
 
     </div>
     <br><br>

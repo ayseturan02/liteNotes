@@ -4,9 +4,9 @@
     <a class="btn btn-success" href="{{route("notes_createPage")}}">Not oluştur </a>
 <br><br>
 
-        @if(session("success"))
+        @if(session("message"))
             <div class="alert alert-success">
-            {{session("success")}}
+            {{session("message")}}
             </div>
         @endif
 

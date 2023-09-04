@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Mockery\Matcher\Not;
 
 class NoteController extends Controller
 {
@@ -81,4 +82,22 @@ class NoteController extends Controller
      return view("front.notes.detail1",compact("not"));
 
     }
+
+    public function update($noteID){
+        $not=Note::find($noteID);
+        return view("front.notes.update1",compact("not"));
+    }
+
+    public function edit(Request $request,$notID){
+        $request->validate([
+           "title"=>"required",
+           "content"=>"min:10"
+        ]);
+        $not=Note::find($notID);
+        $not->title = $request->title;
+        $not->content = $request->content;
+        $not->save();
+        return redirect()->route("notes_index")->with("message","güncelleme başarılı");
+    }
+
 }
