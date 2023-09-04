@@ -72,4 +72,13 @@ class NoteController extends Controller
 
         return redirect()->route("notes_index")->with("success","Başarı ile kaydedildi");
     }
+
+    public function detail1($notID){
+  //    $not=Note::where("id",$notID)->first();
+
+     $not =Note::find($notID);
+
+     return view("front.notes.detail1",compact("not"));
+
+    }
 }
