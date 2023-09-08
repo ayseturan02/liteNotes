@@ -35,7 +35,7 @@ Route::middleware([
     Route::get("/notes/createPage",[NoteController::class,"createPage"])->name("notes_createPage");
     Route::post("/notes/addNote",[NoteController::class,"addNote"])->name("notes_addNote"); //store gibi
 
-    Route::get("/notes/detail/{note_id}",[NoteController::class,"detail1"])->name("notes_detail1");
+    Route::get("/notes/detail/{note}",[NoteController::class,"detail1"])->name("notes_detail1");
     Route::get("/notes/update/{note_id}",[NoteController::class,"update"])->name("notes_update");
 
     //Form güncelleme

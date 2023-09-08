@@ -79,17 +79,20 @@ class NoteController extends Controller
 
     }
 
-    public function detail1($notUUID){
-     $not=Note::where("uui_d",$notUUID)->first();
+    public function detail1(Note $note){
+   //  $not=Note::where("uui_d",$notUUID)->first();
 
 
    //  $not =Note::find($notID);
-     if($not->user_id =! Auth::user()->id){
+     if($note->user_id =! Auth::user()->id){
          abort(403);
         }
-     return view("front.notes.detail1",compact("not"));
+
+     return view("front.notes.detail1",compact("note"));
 
     }
+
+    //route binding
 
     public function update($noteID){
         $not=Note::find($noteID);
