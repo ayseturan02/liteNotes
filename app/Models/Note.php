@@ -10,6 +10,9 @@ class Note extends Model
     use HasFactory;
     protected $table="notes";
 
+    //protected $fillable -> mass assignment yazılabilen alanlar
+    //protected $quarded -> mass assignment yapılamayacak alanlar
+
     protected $fillable =[
         "user_id",
         "title",
