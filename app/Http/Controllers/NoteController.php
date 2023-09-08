@@ -69,6 +69,7 @@ class NoteController extends Controller
         $note->user_id =Auth::user()->id;
         $note->title = $request->title;
         $note->content =$request->content;
+        $note->uui_d =Str::uuid();
         $note->save();
       //  return redirect()->back();
 
@@ -78,11 +79,11 @@ class NoteController extends Controller
 
     }
 
-    public function detail1($notID){
-  //    $not=Note::where("id",$notID)->first();
+    public function detail1($notUUID){
+     $not=Note::where("uui_d",$notUUID)->first();
 
 
-     $not =Note::find($notID);
+   //  $not =Note::find($notID);
      if($not->user_id =! Auth::user()->id){
          abort(403);
         }
