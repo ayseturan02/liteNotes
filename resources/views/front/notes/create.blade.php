@@ -17,11 +17,19 @@
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Başlık</label>
-            <input type="text" name="title" placeholder="lütfen not başlığını giriniz" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="title" value="{{old("title")}}" placeholder="lütfen not başlığını giriniz" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+       @error("title")
+             {{$message}}
+        @enderror
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">İçerik</label>
-            <textarea class="form-control" name="content" placeholder="İçerik" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" name="content" placeholder="İçerik" id="floatingTextarea2" style="height: 100px">{{old("content")}}</textarea>
+
+            @error("content")
+            {{$message}}
+            @enderror
+
         </div>
         <button type="submit" class="btn btn-success">Gönder</button>
     </form>

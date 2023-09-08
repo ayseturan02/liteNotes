@@ -50,12 +50,13 @@ class NoteController extends Controller
                 //"doğrulamakistediğimizkey"="Kuralkoyma"
                 //"title"=>"zorunlu"
                 "title" => "required | min:3 | max:30",
-                "content"=>"required",
+                "content"=>"required | min:12",
             ],[
                 //custom message
                 //keyAdı.kuralAdı=>"mesaj",
                 "title.required"=>"başlık yazmayı unutma",
                 "title.min"=>"lütfen daha uzun yaz",
+                "content.min"=>"İçerik 12 karakter olmalıdır ",
             ]
         );
 
@@ -72,6 +73,9 @@ class NoteController extends Controller
       //  return redirect()->back();
 
         return redirect()->route("notes_index")->with("success","Başarı ile kaydedildi");
+
+        //laravel9 return to_route("notes_index)
+
     }
 
     public function detail1($notID){
