@@ -5,7 +5,7 @@
 <br><br>
 
         @if(session("message"))
-            <div class="alert alert">
+            <div class="alert alert-success">
             {{session("message")}}
             </div>
         @endif
